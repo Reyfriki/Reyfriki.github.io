@@ -1,0 +1,176 @@
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   ReyFriki Juegos
+  </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+   .font-comic {
+     font-family: 'Comic Neue', cursive;
+   }
+   /* Scrollbar styling for the scrollable list */
+   .scrollbar-thin::-webkit-scrollbar {
+     width: 6px;
+   }
+   .scrollbar-thin::-webkit-scrollbar-track {
+     background: transparent;
+   }
+   .scrollbar-thin::-webkit-scrollbar-thumb {
+     background-color: #991b1b; /* Tailwind red-800 */
+     border-radius: 10px;
+   }
+   /* Hover and selected styles for list items */
+   .nav-list li, #gameList li, #emuladoresList li, #extraList li, #bioContent {
+     transition: color 0.2s ease;
+     cursor: pointer;
+     padding: 0.25rem 0;
+   }
+   .nav-list li:hover, #gameList li:hover, #emuladoresList li:hover, #extraList li:hover {
+     color: #dc2626; /* Tailwind red-600 */
+   }
+   .nav-list li.selected {
+     color: #b91c1c; /* Tailwind red-700 */
+     font-weight: 700;
+   }
+   #gameList li.selected, #emuladoresList li.selected, #extraList li.selected {
+     color: #b91c1c; /* Tailwind red-700 */
+     font-weight: 700;
+   }
+  </style>
+ </head>
+ <body class="relative min-h-screen bg-black bg-opacity-70 flex flex-col items-start justify-start" style="background-image: url('https://placehold.co/1920x1080/png?text=Black+Skull+Background&bg=000000&fg=333333'); background-size: cover; background-position: center;">
+  <img alt="Black skull dark background with subtle texture" class="fixed inset-0 w-full h-full object-cover -z-10 filter brightness-75" height="1080" src="https://storage.googleapis.com/a1aa/image/b36492f7-82d5-415f-173d-378ea0441609.jpg" width="1920"/>
+  <header class="w-full max-w-7xl flex items-center justify-start px-4 py-3">
+   <h1 class="font-comic text-4xl text-red-600 select-none" style="text-shadow: 0 0 4px #b91c1c, 0 0 8px #b91c1c, 0 0 12px #b91c1c;">
+    ReyFriki
+   </h1>
+  </header>
+  <main class="flex flex-col md:flex-row items-start justify-start gap-6 mt-6 w-full max-w-7xl px-4 pb-20">
+   <nav class="bg-black bg-opacity-70 rounded-md shadow-lg w-40 text-left text-white font-semibold text-sm select-none">
+    <ul class="nav-list py-2 px-4">
+     <li data-section="emuladores" class="py-2 rounded-t-md hover:bg-red-700 cursor-pointer">Emuladores</li>
+     <li data-section="juegos" class="py-2 bg-red-700 cursor-default rounded-md">Juegos</li>
+     <li data-section="extra" class="py-2 hover:bg-red-700 cursor-pointer">Extra</li>
+     <li data-section="reyfriki" class="py-2 hover:bg-red-700 cursor-pointer rounded-b-md">ReyFriki</li>
+    </ul>
+   </nav>
+   <section class="flex flex-col gap-3 w-full max-w-4xl bg-black bg-opacity-70 rounded-md shadow-lg p-6 text-white text-base min-h-[24rem]">
+    <!-- Emuladores list -->
+    <ul id="emuladoresList" class="max-h-[28rem] overflow-y-auto scrollbar-thin pr-4 font-semibold space-y-2 cursor-pointer hidden">
+     <li data-game="Emulador 1">Emulador 1</li>
+     <li data-game="Emulador 2">Emulador 2</li>
+     <li data-game="Emulador 3">Emulador 3</li>
+     <li data-game="Emulador 4">Emulador 4</li>
+     <li data-game="Emulador 5">Emulador 5</li>
+    </ul>
+    <!-- Juegos list with only Operation Raccoon City -->
+    <ul id="gameList" class="max-h-[28rem] overflow-y-auto scrollbar-thin pr-4 font-semibold space-y-2 cursor-pointer">
+     <li data-game="Operation Raccoon City">Operation Raccoon City</li>
+    </ul>
+    <!-- Extra list -->
+    <ul id="extraList" class="max-h-[28rem] overflow-y-auto scrollbar-thin pr-4 font-semibold space-y-2 cursor-pointer hidden">
+     <li data-game="Extra 1">Extra 1</li>
+     <li data-game="Extra 2">Extra 2</li>
+     <li data-game="Extra 3">Extra 3</li>
+     <li data-game="Extra 4">Extra 4</li>
+     <li data-game="Extra 5">Extra 5</li>
+    </ul>
+    <!-- ReyFriki bio content -->
+    <article id="bioContent" class="hidden max-h-[28rem] overflow-y-auto scrollbar-thin pr-4 text-gray-300 leading-relaxed select-text">
+     <h2 class="text-2xl font-bold mb-4 text-red-600">ReyFriki</h2>
+     <p>
+      ReyFriki es un apasionado de la tecnología y los videojuegos, dedicado a optimizar y compartir contenido para la mejor experiencia de juego. Su misión es ofrecer recursos y guías para que los usuarios disfruten al máximo sus juegos favoritos y herramientas tecnológicas.
+     </p>
+     <p class="mt-4">
+      Con años de experiencia en la comunidad gamer y tecnológica, ReyFriki se ha convertido en un referente para quienes buscan calidad y optimización en sus proyectos digitales.
+     </p>
+    </article>
+   </section>
+  </main>
+  <footer id="downloadBar" class="fixed bottom-4 left-4 w-full max-w-4xl bg-black bg-opacity-80 rounded-md shadow-lg p-4 flex items-center justify-between gap-6 text-white text-base font-semibold select-none opacity-0 pointer-events-none transition-opacity duration-300">
+   <div class="flex items-center gap-3">
+    <i class="fas fa-arrow-down text-lg"></i>
+    <span id="downloadGameName">Descargas</span>
+   </div>
+   <div class="flex gap-4">
+    <button class="bg-gray-900 hover:bg-gray-800 rounded px-4 py-2 text-lg">GoFile</button>
+   </div>
+  </footer>
+  <script>
+   const navList = document.querySelectorAll('.nav-list li[data-section]');
+   const emuladoresList = document.getElementById('emuladoresList');
+   const gameList = document.getElementById('gameList');
+   const extraList = document.getElementById('extraList');
+   const bioContent = document.getElementById('bioContent');
+   const downloadBar = document.getElementById('downloadBar');
+   const downloadGameName = document.getElementById('downloadGameName');
+
+   // Function to hide all content sections
+   function hideAllSections() {
+     emuladoresList.classList.add('hidden');
+     gameList.classList.add('hidden');
+     extraList.classList.add('hidden');
+     bioContent.classList.add('hidden');
+     // Remove selected from all nav items
+     navList.forEach(li => li.classList.remove('selected'));
+     // Remove selected from all list items
+     [emuladoresList, gameList, extraList].forEach(list => {
+       list.querySelectorAll('li').forEach(li => li.classList.remove('selected'));
+     });
+     // Hide download bar
+     downloadBar.style.opacity = '0';
+     downloadBar.style.pointerEvents = 'none';
+   }
+
+   // Show default section Juegos on load
+   window.addEventListener('DOMContentLoaded', () => {
+     hideAllSections();
+     gameList.classList.remove('hidden');
+     navList.forEach(li => {
+       if(li.dataset.section === 'juegos') li.classList.add('selected');
+     });
+   });
+
+   // Nav click handler
+   navList.forEach(li => {
+     li.addEventListener('click', () => {
+       hideAllSections();
+       const section = li.dataset.section;
+       if(section === 'emuladores') {
+         emuladoresList.classList.remove('hidden');
+       } else if(section === 'juegos') {
+         gameList.classList.remove('hidden');
+       } else if(section === 'extra') {
+         extraList.classList.remove('hidden');
+       } else if(section === 'reyfriki') {
+         bioContent.classList.remove('hidden');
+       }
+       li.classList.add('selected');
+     });
+   });
+
+   // Game/emulador/extra item click handler
+   [emuladoresList, gameList, extraList].forEach(list => {
+     list.addEventListener('click', (e) => {
+       const li = e.target.closest('li[data-game]');
+       if (!li) return;
+       // Remove selected class from all in this list
+       list.querySelectorAll('li').forEach(item => item.classList.remove('selected'));
+       // Add selected class to clicked
+       li.classList.add('selected');
+       const gameName = li.getAttribute('data-game');
+       downloadGameName.textContent = `Descargas - ${gameName}`;
+       // Show the download bar
+       downloadBar.style.opacity = '1';
+       downloadBar.style.pointerEvents = 'auto';
+       // Scroll to bottom so user sees the bar on mobile
+       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+     });
+   });
+  </script>
+ </body>
+</html>
